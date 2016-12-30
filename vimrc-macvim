@@ -8,7 +8,7 @@ call vundle#begin()
 " required! 
 Bundle 'gmarik/vundle'
 Bundle 'fatih/vim-go'
-" Bundle 'Shougo/neocomplete'
+Bundle 'Shougo/neocomplete'
 Bundle 'tpope/vim-fugitive'
 Bundle 'jszakmeister/vim-togglecursor'
 
@@ -35,7 +35,7 @@ augroup vimrc_autocmds
     autocmd FileType python setlocal completeopt-=preview
     augroup END
 set laststatus=2
-map <F2> :NERDTreeToggle<CR>
+" map <F2> :NERDTreeToggle<CR>
 
 " Python-mode
 " Activate rope
@@ -79,7 +79,7 @@ map <F2> :NERDTreeToggle<CR>
 " let g:pymode_folding = 0
 " let g:flake8_max_line_length=120
 
-" let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_at_startup = 1
 
 " Close the window of autocomplete after selected
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
