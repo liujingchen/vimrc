@@ -7,16 +7,22 @@ call vundle#begin()
 " let Vundle manage Vundle
 " required!
 Plugin 'gmarik/vundle'
-Plugin 'fatih/vim-go'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'jszakmeister/vim-togglecursor'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'Valloric/YouCompleteMe'
+" NodeJS
+Plugin 'ternjs/tern_for_vim'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'digitaltoad/vim-pug'
+Plugin 'dNitro/vim-pug-complete'
+" Golang
+Plugin 'fatih/vim-go'
 call vundle#end()
-" The rest of your config follows here
+
 filetype plugin indent on
 set background=dark
 set term=xterm-256color
@@ -27,8 +33,22 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Close the window of autocomplete after selected
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
 " Remove trailing spaces on save
 autocmd BufWritePre * %s/\s\+$//e
+
+let g:ycm_auto_trigger = 1
+
+" vim-syntastic settings:
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_pug_checkers = ['pug_lint']
 
 set autochdir
 set tabstop=4
