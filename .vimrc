@@ -59,4 +59,6 @@ set cursorline
 set colorcolumn=80
 set splitbelow
 set updatetime=250
+set spell
 colorscheme codeschool
+highlight SpellBad ctermbg=94 ctermfg=0
