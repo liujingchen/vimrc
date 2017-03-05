@@ -51,6 +51,8 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_pug_checkers = ['pug_lint']
 
 set autochdir
+set smarttab
+set cindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
